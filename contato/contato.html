@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário de Contato</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
+
+    <style>
+         body {
+        font-family: 'Roboto', sans-serif;
+        background: linear-gradient(135deg, #e0eafc, #cfdef3);
+        padding: 40px 20px;
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        font-family: 'Playfair Display', serif;
+        color: #2c3e50;
+        font-size: 2.5em;
+        text-align: center;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+
+    form {
+        background: rgb(41, 120, 80);
+        padding: 20px;
+        border-radius: 8px;
+        max-width: 400px;
+        margin: 20px auto;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    label {
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+    }
+    input, textarea {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        font-family: 'Roboto', sans-serif;
+    }
+    button {
+        margin-top: 15px;
+        padding: 10px;
+        width: 100%;
+        background-color: #9a543b;
+        color: rgb(1, 12, 4);
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #6b8198;
+    }
+    #errorMessages {
+        color: red;
+        margin-top: 10px;
+    }
+    </style>
+</head>
+<body>
+
+    <h1>Formulário de Contato</h1>
+
+    <form id="contactForm">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Mensagem:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Enviar</button>
+
+        <div id="errorMessages"></div>
+    </form>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const errorDiv = document.getElementById('errorMessages');
+
+            let errors = [];
+
+            if (name.length < 3) {
+                errors.push("O nome deve ter pelo menos 3 caracteres.");
+            }
+
+            const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+            if (!emailRegex.test(email)) {
+                errors.push("Por favor, insira um e-mail válido.");
+            }
+
+            if (message.length < 10) {
+                errors.push("A mensagem deve ter pelo menos 10 caracteres.");
+            }
+
+            if (errors.length > 0) {
+                errorDiv.innerHTML = errors.join('<br>');
+            } else {
+                errorDiv.innerHTML = '';
+                alert("Formulário enviado com sucesso!");
+                this.reset();
+            }
+        });
+    </script>
+
+</body>
+</html>

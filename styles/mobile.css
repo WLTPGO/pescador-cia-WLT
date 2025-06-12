@@ -1,0 +1,48 @@
+/* MOBILE NAV - até 780px */
+
+
+@media (max-width:630px) {
+
+
+  header nav#nav-esq {
+    justify-content: space-between;
+  }
+
+  /* Ícones do menu */
+  header nav#nav-esq ul#icone-menu {
+    display: flex;
+  }
+
+  header nav#nav-esq ul#icone-menu li#menu {
+    display: flex;
+  }
+
+  header nav#nav-esq ul#icone-menu li#menuX {
+    display: none;
+    cursor: pointer;
+  }
+
+  /* Menu principal (hambúrguer) */
+  header nav#nav-esq ul#menu-principal {
+    flex-direction: column;
+    width: 80%;
+    height: 70vh;
+    background: linear-gradient(rgba(0,0,0,1.3), rgba(33, 131, 62, 0.682));
+    padding-top: .5rem; 
+    position: absolute;
+    top: 9.3rem;
+    right: 0.2rem;
+    z-index: 999;
+    display: none;
+  }
+
+  header nav#nav-esq ul#menu-principal li {
+    margin: 0.5rem;
+    margin-left: 1rem;
+  }
+
+  header nav#nav-esq ul#menu-principal li a {
+    font-size: 120%;
+  }
+
+}

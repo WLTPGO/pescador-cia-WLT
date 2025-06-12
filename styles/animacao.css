@@ -1,0 +1,36 @@
+/* @ animação titulo header h1 */
+
+@keyframes HeaderH1-moverParaDireita {
+  0% {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  70% {
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+header .chamada h1 {
+  color: aquamarine;
+  animation: HeaderH1-moverParaDireita 2s ease-out;
+}
+
+/* @ animação titulo header h2 */
+@keyframes HeaderH2-moverParaEsquerda {
+  0% {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  70% {
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
